@@ -16,5 +16,9 @@ spec:
       containers:
       - image: swr.cn-east-3.myhuaweicloud.com/kubesre/gcr.io/heptio-images/ks-guestbook-demo:0.2
         name: guestbook-ui
+      
+      containers:
+      - image: redis:7.2.7-alpine
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
