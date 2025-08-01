@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,12 +15,11 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-      - image: swr.cn-east-3.myhuaweicloud.com/kubesre/gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
-      
-      containers:
-      - image: redis:7.2.7-alpine
-        name: redis
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
+        - name: guestbook-ui
+          image: swr.cn-east-3.myhuaweicloud.com/kubesre/gcr.io/heptio-images/ks-guestbook-demo:0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+        - name: redis
+          image: redis:7.2.7-alpine
+          imagePullPolicy: Always
